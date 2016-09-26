@@ -117,7 +117,7 @@ It is a software function provided at a network address over the web, with the s
 
 
 ##Exercise day1:
-[Click here for the daily exercise](Exercises/SP/SP5/REST_JAX-RS_ex1.pdf)
+[Click here for the daily exercise](https://github.com/CphBusCosSem3/Exercises/blob/master/SP/SP5/REST_JAX-RS_ex1.pdf)
 
 
 
