@@ -2,8 +2,9 @@
 #Restful web services with JAX-RS
 ##Day 1: 
 ###Studymaterial:
-[Tutorials point on ReST](https://www.tutorialspoint.com/restful/index.htm)  
-**Read the 10 points under headline: RESTful Tutorial** (You can skip 3 and 4 about env and first application)
+[Tutorials point on ReST](https://www.tutorialspoint.com/restful/index.htm) 
+**Read the 10 points under headline: RESTful Tutorial** (You can skip 3 and 4 about env and first application)  
+[Tutorial on how to manually test rest api with postman app](https://blog.matrix42.com/2016/08/08/api-testing-postman-part-1/) 
 
 
 ###Definition of web service

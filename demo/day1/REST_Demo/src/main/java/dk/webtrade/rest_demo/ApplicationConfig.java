@@ -29,10 +29,10 @@ public class ApplicationConfig extends Application {
    * If required, comment out calling this method in getClasses().
    */
   private void addRestResourceClasses(Set<Class<?>> resources) {
+    resources.add(dk.webtrade.rest_demo.Quote.class);
     resources.add(exceptions.AllExceptionMapper.class);
     resources.add(exceptions.NotFoundExceptionMapper.class);
     resources.add(exceptions.QuoteNotFoundExceptionMapper.class);
-    resources.add(Quote.class);
   }
   
 }
