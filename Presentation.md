@@ -116,7 +116,8 @@ It is a software function provided at a network address over the web, with the s
 - check network tab in chrome developer tools to see the HTTP messages
 
 
-
+##Exercise day1:
+[Click here for the daily exercise](Exercises/SP/SP5/REST_JAX-RS_ex1.pdf)
 
 
 
