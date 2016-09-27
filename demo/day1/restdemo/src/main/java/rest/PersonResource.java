@@ -12,6 +12,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import entities.Person;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,6 +22,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**
  * REST Web Service
@@ -54,6 +56,8 @@ public class PersonResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String getText() {
+//        JsonObject job = new JsonObject();
+//        job.addProperty("quote", quote);
         return "Hello From REST";
     }
 
@@ -134,5 +138,13 @@ public class PersonResource {
                 .entity(gson
                         .toJson(persons.get(id)))
                 .build();
+    }
+    
+    @POST
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON})
+    public Response testReturn(String jsonPerson) {
+        //JsonObject job;
+        throw new NotImplementedException();
     }
 }

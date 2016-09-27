@@ -32,3 +32,4 @@ solution/
 hs_err_pid*
 /demo/day1/todelete/target/
 /demo/day1/restdemo/target/
+/demo/day2/resterrorhandling/target/
