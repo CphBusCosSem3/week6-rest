@@ -212,6 +212,7 @@ Follow this guide (It is both the class material and the home work)
 
 
 ### Refined version
+[Extended version with more explanations](https://github.com/CphBusCosSem3/Exercises/blob/master/SP/SP5/REST-test-gettingStarted.pdf)
 0. Check that Maven is installed:
 	1. From terminal: `mvn -v`
 	2. If not install from here: 
@@ -421,7 +422,6 @@ This embedded Tomcat runs default on port: 8080
    </executions>
 </plugin>
 ``` 
-
 - Change rest assured tests to run on port 8080
 - run: `mvn verify` from console at project root folder
 
