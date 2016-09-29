@@ -26,10 +26,12 @@ nbdist/
 
 # Exercise solutions #
 solution/
-
+RestAssuredDemo/
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 /demo/day1/todelete/target/
 /demo/day1/restdemo/target/
 /demo/day2/resterrorhandling/target/
+/demo/day4/RestAssuredDemo/nbproject/
+/demo/day4/RestAssuredDemo/target/

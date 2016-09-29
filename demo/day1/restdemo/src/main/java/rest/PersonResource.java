@@ -69,6 +69,13 @@ public class PersonResource {
     public String getText(@PathParam("name") String name) {
         return "Hello " + name + " From REST";
     }
+    
+    @GET
+    @Path("{id}")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String getPerson(@PathParam("id") int id){
+        return persons.get(1).getName();
+    }
 
     //Ex3: Using the Response object
     //Test with: http://localhost:8084/restdemo/api/person/resp
