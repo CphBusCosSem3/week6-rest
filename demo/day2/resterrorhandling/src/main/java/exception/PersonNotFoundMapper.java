@@ -21,12 +21,17 @@ public class PersonNotFoundMapper implements ExceptionMapper<PersonNotFoundExcep
     
     @Override
     public Response toResponse(PersonNotFoundException ex) {
-       boolean isDebug = context.getInitParameter("debug").equals("true");
-       ErrorMessage err = new ErrorMessage(ex,404,isDebug);
-       err.setDescription("You tried to call ...");
-       return Response.status(404)
-				.entity(gson.toJson(err))
-				.type(MediaType.APPLICATION_JSON).
-				build();
-	}
+        return Response.status(404).entity(ex.getMessage()).build();
+    }
+    
+        //@Override
+//    public Response toResponse(PersonNotFoundException ex) {
+//       boolean isDebug = context.getInitParameter("debug").equals("true");
+//       ErrorMessage err = new ErrorMessage(ex,404,isDebug);
+//       err.setDescription("You tried to call ...");
+//       return Response.status(404)
+//				.entity(gson.toJson(err))
+//				.type(MediaType.APPLICATION_JSON).
+//				build();
+//	}
 }

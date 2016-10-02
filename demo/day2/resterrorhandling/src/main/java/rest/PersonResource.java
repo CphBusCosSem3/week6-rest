@@ -5,16 +5,15 @@
  */
 package rest;
 
-import domain.TestClass;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import exception.ErrorMessage;
+import exception.MyException;
 import exception.PersonNotFoundException;
-import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
-import javax.ws.rs.Produces;
-import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.PUT;
-import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 
 /**
@@ -24,7 +23,7 @@ import javax.ws.rs.core.Response;
  */
 @Path("person")
 public class PersonResource {
-
+    Gson gson = new GsonBuilder().create();
     @Context
     private UriInfo context;
 
@@ -34,27 +33,39 @@ public class PersonResource {
     public PersonResource() {
     }
 
-    /**
-     * Retrieves representation of an instance of rest.PersonResource
-     * @return an instance of java.lang.String
-     */
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public String getJson() throws PersonNotFoundException {
-        //TestClass tc = new TestClass();
+    @Path("/basic")
+    public String getSomething() {
+        return "Something";
+    }
+    //Example using a specific exceptionMapper
+    @GET
+    @Path("/exception/personnotfound")
+    public String testPNFex() throws PersonNotFoundException {
         throw new PersonNotFoundException("No person by that id");
-        //tc.createError();
-        //return "Hellloooooo";
-        //Response.status(200).entity(this).build();
     }
 
-    /**
-     * PUT method for updating or creating an instance of PersonResource
-     * @param content representation for the resource
-     */
-    @PUT
-    @Consumes(MediaType.APPLICATION_JSON)
-    public void putJson(String content) {
+    //Example using the general exceptionMapper
+    @GET
+    @Path("/exception/generalexception")
+    public String testGeneralex() throws Exception {
+        throw new Exception("This general exception was thrown from testGeneralex()");
     }
     
+    //One way to handle exceptions is to catch them and return an appropriate error message.
+    @GET
+    @Path("/exception/myexception")
+    public Response testMyExc() throws MyException{
+        try{
+            throw new MyException("MyException was thrown from the PersonRessource class");
+        }catch(MyException mye){
+            ErrorMessage em = new ErrorMessage(mye, 404, false);
+            String jsonEx = gson.toJson(em);
+            return Response.status(Response.Status.NOT_FOUND).entity(jsonEx).build();
+        }
+    }
+    
+    //Using webException
+    //These webexceptions is thrown instead of specific exceptions like PersonNotFoundException
+    //This is possible if every needed exception is translated into an exception that extends the webexception.
 }
