@@ -7,6 +7,15 @@ package entities;
 public class Person {
 private String name;
 private int age;
+private String phone;
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
     public Person(String name, int age) {
         this.name = name;
@@ -28,6 +37,11 @@ private int age;
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" + "name=" + name + ", age=" + age + '}';
     }
 
 }

@@ -5,8 +5,10 @@
  */
 package rest;
 
+import com.google.gson.Gson;
 import entities.Person;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.ws.rs.Consumes;
@@ -154,14 +156,5 @@ public class PersonResource {
 //        //JsonObject job;
 //        throw new NotImplementedException();
 //    }
-    @DELETE
-    public void deletePerson(@Suspended
-    final AsyncResponse asyncResponse){
-        executorService.submit(new Runnable() {
-            public void run() {
-                asyncResponse.resume(doDeletePerson());
-            }
-        });
-    }
 
 }

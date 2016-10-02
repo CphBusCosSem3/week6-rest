@@ -2,9 +2,10 @@
 #Restful web services with JAX-RS
 ##Day 1: Restful webservices with JAX-RS
 ###Studymaterial:
-[Tutorials point on ReST](https://www.tutorialspoint.com/restful/index.htm) 
+[Simple introduction](https://jersey.java.net/documentation/latest/jaxrs-resources.html#d0e2822)  
+[Tutorials point on ReST](https://www.tutorialspoint.com/restful/index.htm)   
 **Read the 10 points under headline: RESTful Tutorial** (You can skip 3 and 4 about env and first application)  
-[Tutorial on how to manually test rest api with postman app](https://blog.matrix42.com/2016/08/08/api-testing-postman-part-1/) 
+[Tutorial on how to manually test rest api with postman app](https://blog.matrix42.com/2016/08/08/api-testing-postman-part-1/)  
 [Nice list of simple examples using Jax-RS](http://www.mkyong.com/tutorials/jax-rs-tutorials/)
 
 
