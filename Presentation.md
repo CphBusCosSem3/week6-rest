@@ -1,6 +1,6 @@
 <img align="right" src="img/cphbusinessWhite.png" />  
 #Restful web services with JAX-RS
-##Day 1: 
+##Day 1: Restful webservices with JAX-RS
 ###Studymaterial:
 [Tutorials point on ReST](https://www.tutorialspoint.com/restful/index.htm) 
 **Read the 10 points under headline: RESTful Tutorial** (You can skip 3 and 4 about env and first application)  
@@ -120,7 +120,7 @@ It is a software function provided at a network address over the web, with the s
 ##Exercise day1:
 [Click here for the daily exercise](https://github.com/CphBusCosSem3/Exercises/blob/master/SP/SP5/REST_JAX-RS_ex1.pdf)
 
-##Day2: error handling
+##Day2: Error handling with Exception Mappers
 ###Studymaterial
 [Read section 7.3](https://jersey.java.net/documentation/latest/representations.html)
 [simple example](http://howtodoinjava.com/resteasy/exception-handling-in-jax-rs-resteasy-with-exceptionmapper/)
@@ -159,7 +159,7 @@ When the Rest Service throws an exception either:
 2. unchecked (java.lang.RuntimeException)
 We can do either  
     1. Catch the exception and return a Response object  
-	    - `Response.status(Response.Status.LENGTH_REQUIRED).build();`  
+	    - `Response.status(500).entity("message").build();`  
     2. Create Exception mappers  
 	    - can convert an exception to an HTTP response  
 	    - (If the thrown exception is not handled by a mapper, it is propagated and handled by the container (i.e., servlet) JAX-RS is running within - and we get a generated html response)  
@@ -199,7 +199,9 @@ There are 2 exercises:
 1. [Rest service with JQuery and AJAX](https://github.com/CphBusCosSem3/Exercises/blob/master/SP/SP5/REST_JAX-RS_ex2.pdf)  
 2. [Errorhandling](https://github.com/CphBusCosSem3/Exercises/blob/master/SP/SP5/REST_JAX-RS_ex3_errorhandling.pdf)
 
-##Day3: Deployment
+
+
+##Day3: Deployment (Get previous work deployed to Digital Ocean)
 ###Deploy a full application on Digital Ocean
 Follow this guide (It is both the class material and the home work)  
 [Exercise 4](https://github.com/CphBusCosSem3/Exercises/blob/master/SP/SP5/REST_ex4-DigitalOcean.pdf)
@@ -424,6 +426,9 @@ This embedded Tomcat runs default on port: 8080
 ``` 
 - Change rest assured tests to run on port 8080
 - run: `mvn verify` from console at project root folder
+
+
+### See the full pom.xml on github
 
 
 

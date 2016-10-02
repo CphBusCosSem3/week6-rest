@@ -5,24 +5,23 @@
  */
 package rest;
 
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.UriInfo;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.core.MediaType;
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import entities.Person;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.UriInfo;
+import javax.ws.rs.Path;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.container.AsyncResponse;
+import javax.ws.rs.container.Suspended;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**
  * REST Web Service
@@ -49,10 +48,11 @@ public class PersonResource {
      */
     public PersonResource() {
     }
-
-    //Example1: simple (no parameters and media type: text)
-    //This method runs when server recieves a get request like:
-    //http://localhost:8084/restdemo/api/person
+    //private ExecutorService executorService = java.util.concurrent.Executors.newCachedThreadPool();
+//
+//    //Example1: simple (no parameters and media type: text)
+//    //This method runs when server recieves a get request like:
+//    //http://localhost:8084/restdemo/api/person
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String getText() {
@@ -70,34 +70,34 @@ public class PersonResource {
         return "Hello " + name + " From REST";
     }
     
+//    @GET
+//    @Path("{id}")
+//    @Produces(MediaType.TEXT_PLAIN)
+//    public String getPerson(@PathParam("id") int id){
+//        return persons.get(1).getName();
+//    }
+//
+//    //Ex3: Using the Response object
+//    //Test with: http://localhost:8084/restdemo/api/person/resp
     @GET
-    @Path("{id}")
-    @Produces(MediaType.TEXT_PLAIN)
-    public String getPerson(@PathParam("id") int id){
-        return persons.get(1).getName();
-    }
-
-    //Ex3: Using the Response object
-    //Test with: http://localhost:8084/restdemo/api/person/resp
-    @GET
-    @Path("resp")
+    @Path("/resp")
     public Response getResp() {
         Response res = Response.status(200).entity("Hello world from Response object").build();
         return res;
     }
-
-    //Ex4: Using key value (username={username})
-    //test with http://localhost:8084/restdemo/api/person/username/tha123
+//
+//    //Ex4: Using key value (username={username})
+//    //test with http://localhost:8084/restdemo/api/person/username/tha123
     @GET
     @Path("/username/{username}")
     public Response getPersonByName(@PathParam("username") String username) {
 
         return Response.status(200).entity("getUserByUserName is called, username : " + username).build();
     }
-
-    //Ex5: Using regexp to validate input
-    //Using gson to create JSON from java object (Type: Person)
-    //test with: http://localhost:8084/restdemo/api/person/id/3
+//
+//    //Ex5: Using regexp to validate input
+//    //Using gson to create JSON from java object (Type: Person)
+//    //test with: http://localhost:8084/restdemo/api/person/id/3
     @GET
     @Path("/id/{id : \\d+}") //only allow numbers (d for digit)
     @Produces({MediaType.APPLICATION_JSON})
@@ -106,9 +106,9 @@ public class PersonResource {
         String jsonPerson = gson.toJson(p);
         return Response.status(Response.Status.OK).entity(jsonPerson).build();
     }
-
-    //Ex6: Using multiple input parameters
-    //test with: http://localhost:8084/restdemo/api/person/22/52
+//
+//    //Ex6: Using multiple input parameters
+//    //test with: http://localhost:8084/restdemo/api/person/22/52
     @GET
     @Path("{minage}/{maxage}")
     public Response getUserHistory(
@@ -126,11 +126,11 @@ public class PersonResource {
                 .build();
 
     }
-
-    //Use post to add or update data on the server
-    //Test this method from Postman with a post request containing a simple JSON object in the body like
-    //{"name": "Henriette", "age": 32}   //Remember to set 
-    //post request: http://localhost:8084/todelete/api/person/
+//
+//    //Use post to add or update data on the server
+//    //Test this method from Postman with a post request containing a simple JSON object in the body like
+//    //{"name": "Henriette", "age": 32}   //Remember to set 
+//    //post request: http://localhost:8084/todelete/api/person/
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
@@ -146,12 +146,22 @@ public class PersonResource {
                         .toJson(persons.get(id)))
                 .build();
     }
-    
-    @POST
-    @Consumes({MediaType.APPLICATION_JSON})
-    @Produces({MediaType.APPLICATION_JSON})
-    public Response testReturn(String jsonPerson) {
-        //JsonObject job;
-        throw new NotImplementedException();
+//    
+//    @POST
+//    @Consumes({MediaType.APPLICATION_JSON})
+//    @Produces({MediaType.APPLICATION_JSON})
+//    public Response testReturn(String jsonPerson) {
+//        //JsonObject job;
+//        throw new NotImplementedException();
+//    }
+    @DELETE
+    public void deletePerson(@Suspended
+    final AsyncResponse asyncResponse){
+        executorService.submit(new Runnable() {
+            public void run() {
+                asyncResponse.resume(doDeletePerson());
+            }
+        });
     }
+
 }
