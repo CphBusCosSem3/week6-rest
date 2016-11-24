@@ -28,7 +28,7 @@ public class ServiceIntegrationTest {
     @BeforeClass
     public static void setUpBeforeAll() {
         RestAssured.baseURI = "http://localhost";
-        RestAssured.port = 8080;
+        RestAssured.port = 8084;
         RestAssured.basePath = "/Test1";
         RestAssured.defaultParser = Parser.JSON;
     }

@@ -29,7 +29,7 @@ public class GeneralExceptionMapper implements ExceptionMapper<Exception> {
          if(res != null){
            StatusType type = res.getStatusInfo();
            statusCode = type.getStatusCode();
-           msg = "BLavlavlvlvclaclclvbalbalbla";
+           msg = "Not Found";
 //           msg = type.getReasonPhrase();
          }         
        }
