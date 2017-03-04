@@ -197,7 +197,7 @@ We can do either
 
 ###Exercise day2:
 There are 2 exercises:  
-1. [Rest service with JQuery and AJAX](https://github.com/CphBusCosSem3/Exercises/blob/master/SP/SP5/REST_JAX-RS_ex2.pdf)  
+1. [Rest service with Javascript and AJAX](https://github.com/CphBusCosSem3/Exercises/blob/master/SP/SP5/REST_JAX-RS_ex2.pdf)  
 2. [Errorhandling](https://github.com/CphBusCosSem3/Exercises/blob/master/SP/SP5/REST_JAX-RS_ex3_errorhandling.pdf)
 
 
