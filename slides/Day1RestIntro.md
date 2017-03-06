@@ -41,7 +41,7 @@ It is a software function provided at a network address over the web, with the s
 
 
 ### Demo
-<img align="right" src="img/demoman.png" />  
+<img align="right" src="../img/demoman.png" />  
 - Start new maven project
 - import the relevant dependencies to POM.xml
 	- [Here is an example](https://dzone.com/articles/build-rest-service-netbeans-7)
@@ -65,7 +65,7 @@ It is a software function provided at a network address over the web, with the s
 - DELETE - Used to remove a resource.
 - POST - Used to update a existing resource or create a new resource.
 
-![](img/restmethods.png)
+![](../img/restmethods.png)
 
 
 
@@ -85,7 +85,7 @@ It is a software function provided at a network address over the web, with the s
 ### HTTP messaging
 
 ##### HTTP REQUEST
-![](img/http_request.jpg)  
+![](../img/http_request.jpg)  
 
 - Verb
 	- Indicate HTTP methods such as GET, POST, DELETE, PUT etc.
@@ -101,7 +101,7 @@ It is a software function provided at a network address over the web, with the s
 
 
 #####HTTP RESPONSE
-![](img/http_response.jpg)  
+![](../img/http_response.jpg)  
 
 - Status/Response Code
 	- Indicate Server status for the requested resource. For example 404 means resource not found and 200 means response is ok.
@@ -113,7 +113,7 @@ It is a software function provided at a network address over the web, with the s
 	- Response message content or Resource representation.
 
 ###Lets demo
-<img align="right" src="img/demoman.png" />  
+<img align="right" src="../img/demoman.png" />  
 - use chrome to access: `http://46.101.253.187:8080/quotes/api/quote/1`
 - check network tab in chrome developer tools to see the HTTP messages
 
