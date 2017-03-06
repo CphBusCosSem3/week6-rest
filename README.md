@@ -32,5 +32,15 @@
 
 [**Get exercise here**](https://github.com/CphBusCosSem3/Exercises/blob/master/SP/SP5/REST_JAX-RS_ex3_errorhandling.pdf)
 
-##Day4: Testing restfull webservices
+##Day4: Mocking Databases and Testing REST Endpoints
+
+####Reading
+* [InMemoryTestDatabases](https://www.martinfowler.com/bliki/InMemoryTestDatabase.html)
+* [Testing REST Endpoints Using REST Assured](https://semaphoreci.com/community/tutorials/testing-rest-endpoints-using-rest-assured)
 - Follow the tutorial/Exercise on testing with 'Rest Assured'
+
+####Exercises
+* Complete the part related to "mocking the database" in the "Person" exercise
+* [Getting started with RESTAssured](https://docs.google.com/document/d/1l1-jU9IuqTlsUdBCVwe_6tT2qQ7hd1N5JW9_JIzQWcY/edit?usp=sharing)
+* [Testing "this weeks" REST API's](https://docs.google.com/document/d/1s1OkPOHVD6-3nuFW9AvcrqzN7fBIphIf1iEgLNFQ2pU/edit?usp=sharing)
+
