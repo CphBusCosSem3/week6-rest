@@ -37,7 +37,6 @@
 ####Reading
 * [InMemoryTestDatabases](https://www.martinfowler.com/bliki/InMemoryTestDatabase.html)
 * [Testing REST Endpoints Using REST Assured](https://semaphoreci.com/community/tutorials/testing-rest-endpoints-using-rest-assured)
-- Follow the tutorial/Exercise on testing with 'Rest Assured'
 
 ####Exercises
 * Complete the part related to "mocking the database" in the "Person" exercise
