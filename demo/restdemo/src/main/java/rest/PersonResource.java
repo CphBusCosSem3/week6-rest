@@ -7,6 +7,7 @@ package rest;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import entities.Person;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -64,6 +65,7 @@ public class PersonResource {
 //        job.addProperty("quote", quote);
         return "Hello From REST";
     }
+    
 
     //Ex2: using @Path and @PathParam to provide an input to the method
     //Request like: http://localhost:8084/restdemo/api/person/<some name>
@@ -131,7 +133,7 @@ public class PersonResource {
 
     }
     @GET
-    @Path("/cache")
+    @Path("/caching")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getWithCaching() {
         CacheControl cc = new CacheControl();
@@ -143,6 +145,7 @@ public class PersonResource {
 //        return builder.build();
             JsonObject job = new JsonObject();
             job.addProperty("name", "Pedersen");
+            
         //String jsonstr = gson.toJson(new Person(1, "Pedersen", 32));
         return Response.ok().entity(gson.toJson(job)).cacheControl(cc).build();
 
@@ -152,10 +155,17 @@ public class PersonResource {
 //    //Test this method from Postman with a post request containing a simple JSON object in the body like
 //    //{"name": "Henriette", "age": 32}   //Remember to set 
 //    //post request: http://localhost:8084/todelete/api/person/
+    
+    //  {"quote": "some text here", "sdfsf": "value blablablab"}
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
     public Response addPerson(String jsonPerson) {
+        
+        JsonParser parser = new JsonParser();
+        JsonObject job = parser.parse(jsonPerson).getAsJsonObject();
+        String nameValue = job.get("name").getAsString();
+        
         
         //Use gson to convert from json to java Person object
         Person p = gson.fromJson(jsonPerson, Person.class);
@@ -163,8 +173,8 @@ public class PersonResource {
         persons.put(id, p);
         return Response
                 .status(200)
-                .entity(gson
-                        .toJson(persons.get(id)))
+                //.entity(gson.toJson(persons.get(id)))
+                .entity(nameValue)
                 .build();
     }
 //    
