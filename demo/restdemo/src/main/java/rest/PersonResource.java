@@ -6,6 +6,7 @@
 package rest;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import entities.Person;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,6 +23,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.container.AsyncResponse;
 import javax.ws.rs.container.Suspended;
+import javax.ws.rs.core.CacheControl;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -128,6 +130,23 @@ public class PersonResource {
                 .build();
 
     }
+    @GET
+    @Path("/cache")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getWithCaching() {
+        CacheControl cc = new CacheControl();
+        cc.setMaxAge(86400);
+        cc.setPrivate(true);
+//
+//        ResponseBuilder builder = Response.ok(gson.toJson(new Person(1, "Pedersen", 32)));
+//        builder.cacheControl(cc);
+//        return builder.build();
+            JsonObject job = new JsonObject();
+            job.addProperty("name", "Pedersen");
+        //String jsonstr = gson.toJson(new Person(1, "Pedersen", 32));
+        return Response.ok().entity(gson.toJson(job)).cacheControl(cc).build();
+
+    }   
 //
 //    //Use post to add or update data on the server
 //    //Test this method from Postman with a post request containing a simple JSON object in the body like

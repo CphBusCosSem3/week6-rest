@@ -70,6 +70,26 @@ public class PersonResource {
         return Response.ok().entity(gson.toJson(job)).cacheControl(cc).build();
 
     }
+    @GET
+    @Path("/test")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String testPerson() {
+        CacheControl cc = new CacheControl();
+        cc.setMaxAge(86400);
+        cc.setPrivate(true);
+//
+//        ResponseBuilder builder = Response.ok(gson.toJson(new Person(1, "Pedersen", 32)));
+//        builder.cacheControl(cc);
+//        return builder.build();
+        Person p = new Person(1, "Pedersen", 32);
+//        Person p = new Person();
+//        p.setName("Hansen");
+//        p.setAge(32);
+        String jsonstr = gson.toJson(p);
+        return jsonstr;
+//        return Response.ok().entity(gson.toJson(jsonstr)).cacheControl(cc).build();
+
+    }
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
