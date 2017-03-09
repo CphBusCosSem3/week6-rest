@@ -35,8 +35,8 @@ like: {"status": 404, "message": "The ressource was not found on the server"}
 ###Mapping java exceptions to json objects
 When the Rest Service throws an exception either:  
 1. checked (java.lang.Exception)  
-2. unchecked (java.lang.RuntimeException)
-We can do either  
+2. unchecked (java.lang.RuntimeException)  
+- We can do either  
     1. Catch the exception and return a Response object  
 	    - `Response.status(500).entity("message").build();`  
     2. Create Exception mappers  
